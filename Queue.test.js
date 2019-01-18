@@ -31,10 +31,32 @@ test('สร้าง queue size 2 และ enqueue 1 และ 2 เข้า�
     expect(queue.enqueue(2)).toBe(true)
     expect(queue.dequeue())
     expect(queue.dequeue())
-    console.log(queue.dequeue())
 });
 // 6. สร้าง queue size 1 และ dequeue เลย จะต้องตรวจว่าค่าที่ได้จาก dequeue เป็น null
 test('สร้าง queue size 1 และ dequeue เลย จะต้องตรวจว่าค่าที่ได้จาก dequeue เป็น null', ()=> {
     const queue = new Queue(1)
     expect(queue.dequeue()).toBe(null)
+})
+// 7. bug code 
+test('bug code', ()=> {
+    const queue = new Queue(3)
+    expect(queue.enqueue(8)).toBe(true)
+    expect(queue.enqueue(5)).toBe(true)
+    expect(queue.enqueue(3)).toBe(true)
+    expect(queue.dequeue())
+    expect(queue.dequeue())
+    expect(queue.enqueue(9)).toBe(true)
+    expect(queue.enqueue(11)).toBe(true)
+    expect(queue.head).toBe(2)
+    console.log(queue)
+})
+
+// 8. bug code
+test('bug code', ()=> {
+    const queue = new Queue(3)
+    expect(queue.enqueue(8)).toBe(true)
+    expect(queue.enqueue(5)).toBe(true)
+    expect(queue.enqueue(3)).toBe(true)
+    //expect(queue.head).toBe(2)
+    console.log(queue)
 })
